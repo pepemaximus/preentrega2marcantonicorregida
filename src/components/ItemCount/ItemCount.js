@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import './ItemCount.css';
 
+const initial = 1;
 const ItemCount = ({stock, initial, onAdd}) => {
     const [quantity, setQuantity] = useState(initial)
 
@@ -30,9 +31,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 </button>
             </div>
             <div>
-                {/*utilizo propiedad disabled del botón validando que haya stock disponible*/}
-                <Button variant="info" className="Button" onClick={() => onAdd(quantity)} disabled={!stock}>
-                    Add to cart
+                <Button variant="info" className="Button" onClick={() => onAdd(quantity)} >
+                    Add to cart 
                 </Button>{' '}
             </div>
         </div>

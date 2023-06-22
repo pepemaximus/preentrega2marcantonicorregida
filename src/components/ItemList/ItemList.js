@@ -1,9 +1,9 @@
-import Item from "../Item/Item"
+import ItemCard from "../ItemCard/ItemCard"
 
-const ItemList = ({productsdatabase}) => {
+const ItemList = ({products}) => {
 return (
     <div className="ProductsGroup">
-        {productsdatabase.map(data => <Item key={data.id} {...data}/>)}
+        {products.map(data => <ItemCard key={data.id} product={data}/>)}
     </div>
 )
 }

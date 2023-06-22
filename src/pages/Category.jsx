@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
-import getProducts from "../mock";
+import { getProductByCategory } from "../mock";
 import { useParams } from "react-router-dom";
-import { productDetailById } from "../mock";
-import { productsdatabase} from "../mock";
 
 const Category = () => {
     const {categoryId} = useParams()
-    
-    const productsFilteredByCategory = productsdatabase.filter(prod => prod.category === categoryId); 
+    const [products, setProducts] = useState()    
 
+    useEffect(() => {
+        getProductByCategory(categoryId).then(data => setProducts(data))
+    }, [categoryId])
+    
+
+    if (products) {
         return (
-            <ItemListContainer> {productDetailById} </ItemListContainer>
+            <ItemListContainer products={products}/>
     )
+    }
 }
 
 export default Category;

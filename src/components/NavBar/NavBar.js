@@ -1,16 +1,13 @@
 import CartWidget from "../CartWidget/CartWidget";
-import Button from 'react-bootstrap/Button';
-import Navbar, { NavbarBrand } from "react-bootstrap";
-import { NavDropdown } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
+        <nav className="navbar bg-body-tertiary">
+            <div className="container-fluid">
                 <div>
-                    <button variant="dprimary" Link to="/">Home</button>{' '}
+                    <button variant="dprimary"><Link to="/">Home</Link></button>{' '}
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">

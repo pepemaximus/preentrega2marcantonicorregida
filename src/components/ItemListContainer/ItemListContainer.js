@@ -1,27 +1,16 @@
-import { useState, useEffect } from "react"
-import { getProducts} from "../../mock"
 import  ItemList from "../ItemList/ItemList"
 
-const ItemListContainer = ({greeting}) => {
-    const [productsdatabase, setProductsdatabase] = useState ([])
+const ItemListContainer = ({greeting, products}) => {
 
-    useEffect(() => {
-        getProducts()
-            .then(response => {
-                setProductsdatabase(response)
-            })
-            .catch (error => {
-                console.error(error)
-            })
-    },[]
-    )
+    if(products) {
 
-    return (
-        <div>
-            <h2>{greeting}</h2>
-            <ItemList productsdatabase={productsdatabase}/>
-        </div>
+        return (
+            <div>
+                <h1>{greeting}</h1>   
+                <ItemList products={products}/>
+            </div>
     )
+}
 }
 
 export default ItemListContainer;

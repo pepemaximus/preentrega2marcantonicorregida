@@ -1,24 +1,11 @@
-import React from React;
-import Itemcard from "../Itemcard/Itemcard";
+import ItemCard from "../ItemCard/ItemCard";
 
-const ItemDetailContainer = ({greeting}) => {
-    const [productsdatabase, setProductsDatabase] = useState ([])
+const ItemDetailContainer = ({product}) => {
 
-    useEffect(() => {
-        getProducts()
-            .then(response => {
-                setProductsDatabase(response)
-            })
-            .catch (error => {
-                console.error(error)
-            })
-    },[]
-    )
 
     return (
         <div>
-            <h2>{greeting}</h2>
-            <ItemList ProductsDatabase={productsdatabase}/>
+            <ItemCard product={product}/>
         </div>
     )
 }
